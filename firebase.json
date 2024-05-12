@@ -1,5 +1,6 @@
 {
   "hosting": {
+   "site": "tabiicastwebsendertest",
     "public": "public",
     "ignore": [
       "firebase.json",
