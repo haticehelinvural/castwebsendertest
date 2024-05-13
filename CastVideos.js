@@ -104,7 +104,7 @@ CastPlayer.prototype.initializeCastPlayer = function() {
     // Set the receiver application ID to your own (created in the
     // Google Cast Developer Console), or optionally
     // use the chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID
-    options.receiverApplicationId = 'C0868879';
+    options.receiverApplicationId = '98E8C94C';
 
     // Auto join policy can be one of the following three:
     // ORIGIN_SCOPED - Auto connect from same appId and page origin
@@ -425,7 +425,7 @@ CastPlayer.prototype.setupRemotePlayer = function () {
     playerTarget.load = function (mediaIndex) {
         console.log('Loading...' + this.mediaContents[mediaIndex]['title']);
         var mediaInfo = new chrome.cast.media.MediaInfo(
-            this.mediaContents[mediaIndex]['sources'][0], 'video/mp4');
+            this.mediaContents[mediaIndex]['sources'][0], 'application/dash+xml');
 
         mediaInfo.metadata = new chrome.cast.media.GenericMediaMetadata();
         mediaInfo.metadata.metadataType = chrome.cast.media.MetadataType.GENERIC;
@@ -936,7 +936,7 @@ CastPlayer.getErrorMessage = function(error) {
 var mediaJSON = { 'categories' : [{ 'name' : 'Movies',
     'videos' : [
         { 'description' : "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-            'sources' : ['http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'],
+            'sources' : ['https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd'],
             'subtitle' : 'By Blender Foundation',
             'thumb' : 'images/BigBuckBunny.jpg',
             'title' : 'Big Buck Bunny'
