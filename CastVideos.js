@@ -397,7 +397,7 @@ CastPlayer.prototype.setupLocalPlayer = function () {
   };
 
   playerTarget.load = function (mediaIndex) {
-    localPlayer.src = MEDIA_SOURCE_ROOT + this.mediaContents[mediaIndex]['contentUrl'];
+    localPlayer.src =  this.mediaContents[mediaIndex]['contentUrl'];
     localPlayer.load();
   }.bind(this);
 
@@ -405,7 +405,7 @@ CastPlayer.prototype.setupLocalPlayer = function () {
     if (!mediaIndex) {
       return (localPlayer.src !== null && localPlayer.src !== "");
     } else {
-      return (localPlayer.src == MEDIA_SOURCE_ROOT + this.mediaContents[mediaIndex]['contentUrl']);
+      return (localPlayer.src == this.mediaContents[mediaIndex]['contentUrl']);
     }
   }.bind(this);
 
@@ -641,7 +641,7 @@ CastPlayer.prototype.setupRemotePlayer = function () {
   playerTarget.load = function (mediaIndex) {
     console.log('Loading...' + this.mediaContents[mediaIndex]['title']);
 
-    let mediaInfo = new chrome.cast.media.MediaInfo(MEDIA_SOURCE_ROOT + this.mediaContents[mediaIndex]['contentUrl'], this.mediaContents[mediaIndex]['contentType']);
+    let mediaInfo = new chrome.cast.media.MediaInfo(this.mediaContents[mediaIndex]['contentUrl'], this.mediaContents[mediaIndex]['contentType']);
     mediaInfo.streamType = chrome.cast.media.StreamType.BUFFERED;
     mediaInfo.metadata = new chrome.cast.media.TvShowMediaMetadata();
     mediaInfo.metadata.title = this.mediaContents[mediaIndex]['title'];
